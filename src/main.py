@@ -14,29 +14,30 @@ import sys
 import time
 from datetime import datetime
 
-wake_up_time = datetime.strptime(sys.argv[1], "%I:%M %p")
-try:
-    while (datetime.now().strftime("%I:%M %p") != wake_up_time):
-        time.sleep(10)
-except KeyboardInterrupt:
-    os.system("polybar&disown")
-    os.system("alacritty msg config font.size=11.5")
-
-
 def verifyF(inp):
     if len(inp) > 131:
         return verifyF(Faker().paragraph(nb_sentences=5))
     else:
         return inp
 
-alarm.begin()
-lockdown.begin()
+wake_up_time = datetime.strptime(sys.argv[1], "%I:%M %p").time()
+try:
+    while datetime.now().strftime("%I:%M %p") != wake_up_time.strftime("%I:%M %p"):
+        time.sleep(10)
 
-for i in range(5):
-    while (not typing_test.typing_test(verifyF(Faker().paragraph(nb_sentences=5)))):
-        pass
+    alarm.begin()
+    lockdown.begin()
 
-lockdown.end()
-alarm.end()
-os.system("polybar&disown")
-os.system("alacritty msg config font.size=11.5")
+    for i in range(5):
+        while (not typing_test.typing_test(verifyF(Faker().paragraph(nb_sentences=5)))):
+            pass
+
+    lockdown.end()
+    alarm.end()
+    os.system("polybar&disown")
+    os.system("alacritty msg config font.size=11.5")
+
+except KeyboardInterrupt:
+    os.system("polybar&disown")
+    os.system("alacritty msg config font.size=11.5")
+
