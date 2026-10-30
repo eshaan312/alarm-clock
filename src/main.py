@@ -11,6 +11,7 @@ import lockdown
 import typing_test
 from faker import Faker
 import sys
+import time
 from datetime import datetime
 
 wake_up_time = datetime.strptime(sys.argv[1], "%I:%M %p")
