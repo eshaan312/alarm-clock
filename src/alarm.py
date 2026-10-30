@@ -8,7 +8,7 @@ import os
 ring = True
 
 def internal_begin():
-    os.system("pactl set-sink-volume @DEFAULT_SINK@ 60%");
+    os.system("pactl set-sink-volume @DEFAULT_SINK@ 67%");
     pygame.mixer.pre_init(44100, -16, 2, 512)
     pygame.init()
     SAMPLE_RATE = 44100
