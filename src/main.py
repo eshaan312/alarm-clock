@@ -4,7 +4,7 @@ os.environ["PYGAME_HIDE_SUPPORT_PROMPT"] = "1"
 os.system("clear")
 os.system("alacritty msg config font.size=16")
 os.system("pkill polybar")
-print("ESHAAN'S ALARM SYSTEM!\n")
+print("ESHAAN'S ALARM SYSTEM!")
 
 import alarm
 import lockdown
@@ -27,8 +27,8 @@ try:
 
     alarm.begin()
     lockdown.begin()
-
-    for i in range(3):
+    print()
+    for i in range(5):
         while (not typing_test.typing_test(verifyF(Faker().paragraph(nb_sentences=5)))):
             pass
 
