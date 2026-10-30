@@ -15,8 +15,13 @@ import time
 from datetime import datetime
 
 wake_up_time = datetime.strptime(sys.argv[1], "%I:%M %p")
-while (datetime.now().strftime("%I:%M %p") != wake_up_time):
-    time.sleep(10)
+try:
+    while (datetime.now().strftime("%I:%M %p") != wake_up_time):
+        time.sleep(10)
+else:
+    os.system("polybar&disown")
+    os.system("alacritty msg config font.size=11.5")
+
 
 def verifyF(inp):
     if len(inp) > 131:
