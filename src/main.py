@@ -28,7 +28,7 @@ try:
     alarm.begin()
     lockdown.begin()
 
-    for i in range(5):
+    for i in range(3):
         while (not typing_test.typing_test(verifyF(Faker().paragraph(nb_sentences=5)))):
             pass
 

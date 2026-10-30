@@ -13,13 +13,17 @@ def internal_begin():
     pygame.init()
     SAMPLE_RATE = 44100
 
-    duration = 0.8
+    duration = 1.2
     t = np.linspace(0, duration, int(SAMPLE_RATE * duration), False)
-    wave = (
-        0.65 * np.sin(2 * np.pi * 1200 * t) +
-        0.65 * np.sin(2 * np.pi * 1600 * t) +
-        0.35 * np.sin(2 * np.pi * 2400 * t)
+    base_wave = (
+        0.6 * np.sin(2 * np.pi * 587.33 * t) +  
+        0.4 * np.sin(2 * np.pi * 880.00 * t)   
     )
+
+    pulse_frequency = 4.0 
+    pulse_envelope = 0.5 * (1 + np.sin(2 * np.pi * pulse_frequency * t))
+
+    wave = base_wave * pulse_envelope
 
     wave = np.sign(wave) * np.abs(wave) ** 0.7
     wave = wave / np.max(np.abs(wave)) * 0.85
