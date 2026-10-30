@@ -18,7 +18,7 @@ wake_up_time = datetime.strptime(sys.argv[1], "%I:%M %p")
 try:
     while (datetime.now().strftime("%I:%M %p") != wake_up_time):
         time.sleep(10)
-else:
+except KeyboardInterrupt:
     os.system("polybar&disown")
     os.system("alacritty msg config font.size=11.5")
 
