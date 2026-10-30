@@ -4,7 +4,7 @@ os.environ["PYGAME_HIDE_SUPPORT_PROMPT"] = "1"
 os.system("clear")
 os.system("alacritty msg config font.size=16")
 os.system("pkill polybar")
-print("ESHAAN'S ALARM SYSTEM!")
+print("ESHAAN'S ALARM SYSTEM")
 
 import alarm
 import lockdown
