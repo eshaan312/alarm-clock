@@ -9,4 +9,6 @@ use sxhkd, x11, polybar (not required but if you use any other bars, you gotta r
         
 in your sxkhd config, have 3 files ready: one called sxhkdrc (your main one, unchanged); a second one called sxhkdrc_nac (your main one, without audio controls); and a third one called ac (just the audio conttols that sxhkdrc_nac removes.).         
          
-you can super easily modify the program in the main and lockdown files to fit your environment.
+you can super easily modify the program in the main and lockdown files to fit your environment.         
+
+also you’ve gotta turn off auto sleeping on your computer.
