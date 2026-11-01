@@ -14,6 +14,8 @@ import sys
 import time
 from datetime import datetime
 
+lockdown.begin()
+
 def verifyF(inp):
     if len(inp) > 131:
         return verifyF(Faker().paragraph(nb_sentences=5))
@@ -26,7 +28,6 @@ try:
         time.sleep(10)
 
     alarm.begin()
-    lockdown.begin()
     print()
     for i in range(5):
         while (not typing_test.typing_test(verifyF(Faker().paragraph(nb_sentences=5)))):
